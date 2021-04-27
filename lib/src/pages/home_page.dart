@@ -4,13 +4,30 @@ import 'package:flutter/material.dart';
 la App*/
 class HomePage extends StatelessWidget{
 
+  //Crear un Text Style para reutilizar en los widget
+  final estiloTexto = new TextStyle(fontSize: 30);
+
+  /*Un widget solo puede tener un child , para poder 
+  ordenarlos en este caso de arriba a abajo , es mejor usar 
+  un widget Columns */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Contador App"),
       ),
-      body: Center(child: Text("Texto del body",),),
+      body: Center(
+        //el body corresponde a un Center , el cual centra
+        //al child  el cual es un Column
+        child: Column(
+          //Centra los widget del Column en el centro
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("Número de clicks",style: estiloTexto),
+            Text("Contador",style: estiloTexto)
+          ],
+        ),
+      )
     );
   }
 }
