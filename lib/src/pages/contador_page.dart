@@ -15,10 +15,21 @@ class _ContadorPageState extends State<ContadorPage>{
   int counter = 0;
 
   void incrementCounter(){
-
     //setState redibuja el estado del widget actual
     setState(() {
       this.counter++;
+    });
+  }
+
+  void decrementCounter(){
+    setState(() {
+      this.counter--;
+    });
+  }
+
+  void resetCounter(){
+    setState(() {
+      this.counter = 0;
     });
   }
 
@@ -43,10 +54,25 @@ class _ContadorPageState extends State<ContadorPage>{
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: incrementCounter,
-      ),
+
+      /*se tiene una fila de floatingActionButton alineados al centro*/
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: incrementCounter,
+          ),
+          FloatingActionButton(
+            child: Icon(Icons.remove),
+            onPressed: decrementCounter,
+          ),
+          FloatingActionButton(
+            child: Icon(Icons.stop),
+            onPressed: resetCounter,
+          )
+        ],),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
