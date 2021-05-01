@@ -33,6 +33,30 @@ class _ContadorPageState extends State<ContadorPage>{
     });
   }
 
+  /* Retorna un widget tipo Row el cual tiene como hijos
+  3 floatingActionbutton */
+  Widget _contenedorBotones(){
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: incrementCounter,
+          ),
+          SizedBox(width: 15.0),
+          FloatingActionButton(
+            child: Icon(Icons.remove),
+            onPressed: decrementCounter,
+          ),
+          SizedBox(width: 15.0),
+          FloatingActionButton(
+            child: Icon(Icons.stop),
+            onPressed: resetCounter,
+          )
+        ],
+    );
+  }
+
   /*Un widget solo puede tener un child , para poder 
   ordenarlos en este caso de arriba a abajo , es mejor usar 
   un widget Columns */
@@ -56,25 +80,11 @@ class _ContadorPageState extends State<ContadorPage>{
       ),
 
       /*se tiene una fila de floatingActionButton alineados al centro*/
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          FloatingActionButton(
-            child: Icon(Icons.add),
-            onPressed: incrementCounter,
-          ),
-          FloatingActionButton(
-            child: Icon(Icons.remove),
-            onPressed: decrementCounter,
-          ),
-          FloatingActionButton(
-            child: Icon(Icons.stop),
-            onPressed: resetCounter,
-          )
-        ],),
-
+      floatingActionButton: _contenedorBotones(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
+
+
 
 }
